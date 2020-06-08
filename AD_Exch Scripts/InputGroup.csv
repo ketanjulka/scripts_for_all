@@ -1,0 +1,2 @@
+Name,Description,Path
+TestGroup,This is a Test Group,"CN=Users,DC=red,DC=local"
