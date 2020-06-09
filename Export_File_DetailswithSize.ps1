@@ -1,7 +1,7 @@
 ############################################################################################
 #       Author: Ketan Julka
 #       Date: 05/15/2020
-#       Description: Export details(with Size) of all files in a Drive or Folder
+#       Description: Export details(including Size) of all files in a Drive or Folder
 ############################################################################################
 
 $fileinfo=@()
