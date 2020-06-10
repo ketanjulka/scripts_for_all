@@ -1,6 +1,6 @@
 Function Remove-OneDriveSharingLink {
 param (
-	$OneDriveURL="https://alfuttaimgroup-admin.sharepoint.com"   
+	$OneDriveURL="https://xyz.sharepoint.com"   
       )   
 process{
  	
@@ -34,4 +34,4 @@ process{
       }
   }
  
-Remove-OneDriveSharingLink -OneDriveURL "https://alfuttaimgroup-my.sharepoint.com/personal/ketan_julka-external_alfuttaim_com"
+Remove-OneDriveSharingLink -OneDriveURL "https://alfuttaimgroup-my.sharepoint.com/personal/tom_xyz_com"
