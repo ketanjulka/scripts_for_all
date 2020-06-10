@@ -1,7 +1,7 @@
 import-module ActiveDirectory
 
 #OU location
-$OU = "OU=RSH - Indonesia,OU=AlFuttaim,DC=corp,DC=al-futtaim,DC=com"
+$OU = "OU=Users,OU=ABC,DC=corp,DC=XYZ,DC=com"
 #New password
 $Newpassword = "Welcome@123"
 
