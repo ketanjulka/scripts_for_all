@@ -1,7 +1,7 @@
 # Scripts_for_all
 Welcome to the my scripts Repository! It includes basic Scripts for Exchange/Exchange Online, Microsoft 365, Active Directory and Windows Clients/Servers which I have created/collected over time. 
 
-I do not come from a programming background and started by creating one liner powershell scripts. As I progressed in my carrier I started sharping  my skills. :)
+I do not come from a programming background and started by creating one liner powershell scripts. As I progressed in my carrier I started sharpening my coding skills. :)
 
 
 
