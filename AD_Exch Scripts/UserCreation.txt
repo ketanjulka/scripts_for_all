@@ -1,1 +1,0 @@
-Import-Csv -Path "InputUsers.csv" | foreach {New-ADUser -Name $_.Name -DisplayName $_.DisplayName -UserPrincipalName $_.UserPrincipalName -Path $_.Path -AccountPassword (ConvertTo-SecureString "Welcome@12345" -AsPlainText -Force) -Enabled:$True}

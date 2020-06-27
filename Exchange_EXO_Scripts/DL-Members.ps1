@@ -13,4 +13,4 @@ New-Object -TypeName PSObject -Property @{
       GroupName = $group
       Members = $members
      }
-} | Export-CSV "D:\Ketan\InodDLMembers.csv" -NoTypeInformation -Encoding UTF8
+} | Export-CSV "D:\Ketan\DLMembers.csv" -NoTypeInformation -Encoding UTF8
