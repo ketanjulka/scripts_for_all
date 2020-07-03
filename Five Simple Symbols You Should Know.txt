@@ -1,0 +1,5 @@
+@ hash table (array operator)
+? Where-Object
+| passes results of one command to the next command
+$ indicates a variable
+% ForEach-Object
