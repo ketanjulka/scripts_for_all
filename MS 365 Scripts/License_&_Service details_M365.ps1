@@ -4,7 +4,7 @@
 #       Description: Use this script to list the services that are available in each 
 #                    licensing plan and export the same into HTML format. The exported output
 #                    can be emailed using the below command.   
-#           Send-MailMessage -To “<recipient’s email address>” -From “<sender’s email address>”  -Subject “Your message subject” -Body “Some important plain text!” -Credential (Get-Credential) -SmtpServer “<smtp server>” -Port 587 -Attachments "Filenames to be attached and the path to them"
+#           Send-MailMessage -To <recipient email address>� -From <senders email address> -Subject Your message subject� -Body Some important plain text!� -Credential (Get-Credential) -SmtpServer <smtp server>� -Port 587 -Attachments "Filenames to be attached and the path to them"
 #      
 #       References: https://docs.microsoft.com/en-us/office365/enterprise/powershell/view-account-license-and-service-details-with-office-365-powershell
 ############################################################################################
