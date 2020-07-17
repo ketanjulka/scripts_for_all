@@ -239,21 +239,20 @@ $Zonevalidation = Get-DnsServerZone -ZoneName $FwZoneName -ErrorAction SilentlyC
 
         ForEach ($entry in $import_input) 
         {
-            # This section checks if the host A record already exists.
-            $A_Record_Check = Get-DnsServerResourceRecord -ZoneName $FwZoneName -Name $entry.Name 
 
-            if($A_Record_Check -eq $null)
+            try
             {
 
-                Add-DnsServerResourceRecord -ZoneName $FwZoneName -A -Name $entry.Name -IPv4Address $entry.IPAddress -CreatePtr -TimeToLive 01:00:00 -AllowUpdateAny -AgeRecord -ErrorVariable ptrerror -ErrorAction Stop
+                Add-DnsServerResourceRecord -ZoneName $FwZoneName -A -Name $entry.Name -IPv4Address $entry.IPAddress -CreatePtr -TimeToLive 01:00:00 -AllowUpdateAny -AgeRecord -ErrorAction Stop
+
+            }
     
                 # Validates the Reverse Lookup Zone error and warns the user that the Ptr record was not created. If the Reverse lookup zone already exists
                 # both A and Ptr records are created.
-                if($ptrerror -ne $null)
+             Catch
                 {
     
-                    Write-Host "Ignore the above error. No Reverse lookupzone found for the given IP Address." -ForegroundColor Green
-                    Write-Host "Creating a new Reverse Lookup Zone."
+                    Write-Warning -Message "No Reverse lookupzone found for the given IP Address. Creating a new Reverse Lookup Zone."
 
                     # Fetches the Network ID and Mask details using the Function.
                     $NetID = @(Get-IPv4Subnet -IPAddress $entry.IPAddress -SubnetMask $entry.SubnetMask)
@@ -270,18 +269,9 @@ $Zonevalidation = Get-DnsServerZone -ZoneName $FwZoneName -ErrorAction SilentlyC
                     Add-DnsServerResourceRecord -ZoneName $FwZoneName -A -Name $entry.Name -IPv4Address $entry.IPAddress -CreatePtr -TimeToLive 01:00:00 -AllowUpdateAny -AgeRecord -ErrorVariable ptrerror -ErrorAction Stop
                
                 }
-                    
-              
-            }
-            else
-            {
-
-            Write-Host "Host A record already exists." -ForegroundColor Cyan
-
-            }
-
+                  
+                         
         }
-    
     
     }
     else
