@@ -1,0 +1,2 @@
+GivenName,Surname,SamAccountName,DisplayName,UserPrincipalName,EmailAddress,Designation,Manager,State,Division,Department,Mobile,OfficePhone,Office,Company,Country,Path
+Ketan,Julka,ketan.julka,Ketan Julka,Ketan.Julka@o365experts.local,ketan.julka@o365experts.com,Technology specialist,,Abudhabi,Client Operations,Information Technology,+971 542232000,43356,"Abu Dhabi, Office",XYZ LLC,United Arab Emirates,"CN=Users,DC=o365experts,DC=local"

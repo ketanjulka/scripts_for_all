@@ -1,2 +1,0 @@
-Name,DisplayName,UserPrincipalName,Path
-TestUser,TestUser,TestUser@domain.com,"CN=Users,DC=red,DC=local"
