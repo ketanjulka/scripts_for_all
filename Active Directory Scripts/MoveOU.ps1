@@ -1,4 +1,4 @@
-# Specify target OU.
+#Specify target OU.
 $TargetOU = "OU=Non Sync -Security Groups,OU=Security Groups,OU=Al-Futtaim Groups,DC=corp,DC=al-futtaim,DC=com"
 
 # Read user sAMAccountNames from csv file (field labeled "Name").
