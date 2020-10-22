@@ -11,7 +11,7 @@ git clone https://github.com/ketanjulka/scripts_for_all.git
 ```
 Additionally you can download these scripts from this [OneDrive link].
 
-[OneDrive link]: https://exchangexperts-my.sharepoint.com/:f:/g/personal/ketan_o365experts_tk/EnNcrviP-9RKlLEmVRPZRN4BlOXuwxhZCiN1F0T2m1H6uw?e=AosNLP
+[OneDrive link]: https://exchangexperts-my.sharepoint.com/personal/ketan_j_exchangexperts_onmicrosoft_com/_layouts/15/onedrive.aspx?originalPath=aHR0cHM6Ly9leGNoYW5nZXhwZXJ0cy1teS5zaGFyZXBvaW50LmNvbS86ZjovZy9wZXJzb25hbC9rZXRhbl9qX2V4Y2hhbmdleHBlcnRzX29ubWljcm9zb2Z0X2NvbS9Fbk5jcnZpUC05UktsTEVtVlJQWlJONEJsT1h1d3hoWkNpTjFGMFQybTFINnV3P3J0aW1lPUU1dEc1NkYyMkVn&id=%2Fpersonal%2Fketan%5Fj%5Fexchangexperts%5Fonmicrosoft%5Fcom%2FDocuments%2Fscripts%5Ffor%5Fall
 
 
 # Code Disclaimer:
