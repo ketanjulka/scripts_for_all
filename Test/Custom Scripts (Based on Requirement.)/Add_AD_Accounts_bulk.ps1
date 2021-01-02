@@ -10,7 +10,7 @@ $password = ConvertTo-SecureString "5tgbNHY^7ujm<KI*" -AsPlainText -Force
 $import_input = Import-Csv -Path $inputfile -Encoding UTF8
 
 # Provide Source Domain details
-$OldDomainDN = 'DC=mofa,DC=gov,DC=ae'
+$OldDomainDN = 'DC=brown,DC=local'
 # Provide Destination Domain details
 $NewDomainDN = 'DC=red,DC=local'
 

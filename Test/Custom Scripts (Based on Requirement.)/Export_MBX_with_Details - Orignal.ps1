@@ -1,7 +1,7 @@
 ﻿Add-PSSnapin Microsoft.Exchange.Management.PowerShell.SnapIn # Imports the Exchange Module in to Powershell.
 $mbxdetails = @()
 
-$mbxinput = Import-Csv C:\Scripts\Export_MBX_with_Details\MOFA_Initial_Users.csv -Encoding UTF8
+$mbxinput = Import-Csv C:\Scripts\Export_MBX_with_Details\Brown_Initial_Users.csv -Encoding UTF8
 
 $mbxdetails = foreach($mb in $mbxinput) {
 

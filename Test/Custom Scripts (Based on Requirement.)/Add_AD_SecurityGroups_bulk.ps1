@@ -47,19 +47,3 @@ foreach($g in $imp_csv) {
         
      
 }
-
-#New-ADGroup -Name $g.Name -SamAccountName $g.SamAccountName -GroupScope $g.GroupScope -GroupCategory $g.GroupCategory -Path "OU=Groups,OU=Documents and Archiving Department,OU=Central MOFA,OU=Abu Dhabi,OU=LOCAL Departments,DC=red,DC=local" -Verbose
-
-#*******************************************************************************************
-
-#$imp_csv = Import-Csv -Path "C:\PST's\groups_security1.csv" -Encoding UTF8
-
-#foreach($g in $imp_csv)
-#    {
-#    
-#     $ou = $g.DistinguishedName.Split(',')
-#     $ou_path = $ou[1] + "," + $ou[2]
-#     
-#     Get-ADOrganizationalUnit -Properties * -Filter * | where {$_.DistinguishedName -match "$ou_path"} | Select-Object DistinguishedName
-
-#    }

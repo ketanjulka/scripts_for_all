@@ -1,1 +1,1 @@
-﻿net use x: \\auhfsv01\OpenShares\Ketan /persistent:yes
+﻿net use x: \\fsv01\OpenShares\Ketan /persistent:yes

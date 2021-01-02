@@ -3,7 +3,7 @@
 $group_input = Import-Csv -Path C:\Scripts\Scripts_Testing\groups_Permissions.csv -Encoding UTF8
 
 # Provide Source Domain details
-$OldDomainDN = 'DC=mofa,DC=gov,DC=ae'
+$OldDomainDN = 'DC=brown,DC=local'
 # Provide Destination Domain details
 $NewDomainDN = 'DC=red,DC=local'
 
