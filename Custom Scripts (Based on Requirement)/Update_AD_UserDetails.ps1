@@ -94,7 +94,7 @@ if($testpth -eq "True")
 
                     #Updates the attributes with the new values in the CSV file.
 
-                    [string]$old_upn = ($user.UserPrincipalName -split ('@'))
+                    $old_upn = ($user.UserPrincipalName -split ('@'))
                     $new_upn = 'grey.local' # Modify this value to match the UPN Suffix in the new domain.
                     [string]$set_upn = $user.UserPrincipalName -replace $old_upn[1], $new_upn
 
