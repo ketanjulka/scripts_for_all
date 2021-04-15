@@ -34,7 +34,7 @@ foreach ($usr in $import_input)
 
                 if($usr_valid -eq $null)
                 {
-                    [string]$old_upn = ($usr.UserPrincipalName -split ('@'))
+                    $old_upn = ($usr.UserPrincipalName -split ('@'))
                     $new_upn = 'grey.local'
                     [string]$set_upn = $usr.UserPrincipalName -replace $old_upn[1], $new_upn
                         
