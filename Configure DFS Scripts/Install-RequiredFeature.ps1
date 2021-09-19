@@ -1,0 +1,1 @@
+Get-WindowsFeature -Name FS-DFS-Namespace,FS-DFS-Replication,FS-Resource-Manager,FS-VSS-Agent,RSAT-File-Services,RSAT-DFS-Mgmt-Con,RSAT-FSRM-Mgmt,Search-Service | Install-WindowsFeature
