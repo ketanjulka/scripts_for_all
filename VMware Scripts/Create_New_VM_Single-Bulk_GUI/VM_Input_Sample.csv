@@ -1,0 +1,4 @@
+Name,ResourcePool,CpuNumber,MemoryGB,DiskGB,Network_Name,Datastore,VMTemplate
+kj_vm_test1,advl6shnn2032.mydomain.com,2,8,150;500,Production-217;DMZ-UAG-218,Production-Datastore,
+kj_vm_test2,advl6shnn2032.mydomain.com,2,8,150;500;1024,Production-217,Production-Datastore,
+kj_vm_test3_temp,advl6shnn2032.mydomain.com,,,,,,DM-IX-Clean_Template
