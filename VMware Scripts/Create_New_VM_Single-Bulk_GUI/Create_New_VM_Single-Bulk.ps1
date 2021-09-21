@@ -4,7 +4,8 @@
 #  Description: This script can be used to create single or multiple VM’s using manual inputs or a CSV file.
 #               A Template can also be used. User input will be taken in a GUI (.NET based).
 #
-#                
+#  Refer to below link for details about Parameter's
+#  https://developer.vmware.com/docs/powercli/latest/vmware.vimautomation.core/commands/new-vm/#DefaultParameterSet           
 #       
 #    
 ###############################################################################################################
