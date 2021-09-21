@@ -1,5 +1,5 @@
 # Scripts_for_all:
-Welcome to the my scripts Repository! It includes basic Scripts for Exchange/Exchange Online, Microsoft 365, Active Directory and Windows Clients/Servers which I have created/collected over time.
+Welcome to the my scripts Repository! It includes Scripts for Exchange/Exchange Online, Microsoft 365, Active Directory and Windows Clients/Servers which I have created/collected over time.
 
 
 # Downloading the Scripts:
