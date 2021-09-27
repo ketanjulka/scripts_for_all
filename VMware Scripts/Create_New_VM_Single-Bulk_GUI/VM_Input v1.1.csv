@@ -1,4 +1,0 @@
-Name,ResourcePool,CpuNumber,MemoryGB,DiskGB,GuestOS,Network_Name,Datastore,VMTemplate
-kj_vm_test1,advl6shnn2032.mydomain.com,2,8,150;500,Microsoft Windows Server 2016 (64-bit),Production-217;DMZ-UAG-218,Production-Datastore,
-kj_vm_test2,advl6shnn2032.mydomain.com,2,8,150;500;1024,Red Hat Enterprise Linux 7 (64-bit),Production-217,Production-Datastore,
-kj_vm_test3_temp,advl6shnn2032.mydomain.com,,,,,,,WinServer2016_Template
