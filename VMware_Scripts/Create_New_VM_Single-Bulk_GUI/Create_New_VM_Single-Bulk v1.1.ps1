@@ -1,4 +1,16 @@
-﻿#Import the required sub-module. Import-Module VMware.PowerCLI can also be used.
+﻿###############################################################################################################
+#  Author: Ketan Julka
+#  Date: 27/09/2021
+#  Description: This script can be used to create single or multiple VM’s using manual inputs or a CSV file.
+#               A Template can also be used. User input will be taken in a GUI (.NET based).
+#
+#  Refer to below link for details about Parameter's
+#  https://developer.vmware.com/docs/powercli/latest/vmware.vimautomation.core/commands/new-vm/#DefaultParameterSet           
+#       
+#    
+###############################################################################################################
+
+#Import the required sub-module. Import-Module VMware.PowerCLI can also be used.
 Import-Module VMware.VimAutomation.Core
 
 # Used for GUI
