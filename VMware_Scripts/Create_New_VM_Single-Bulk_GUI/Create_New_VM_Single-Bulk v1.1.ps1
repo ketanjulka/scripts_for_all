@@ -23,7 +23,7 @@ $FileBrowser = New-Object System.Windows.Forms.OpenFileDialog -Property @{ Initi
 # Making secure connection to the vCenter for creation of the VM's.
 try
 {
-    Connect-VIServer -Server (Read-Host "Enter the vCenter Host Name or IP").Trim() -Credential (Get-Credential administrator@vsphere.local) -ErrorAction Stop | Out-Null
+    Connect-VIServer -Server (Read-Host "Enter the vCenter Host Name or IP").Trim() -Credential (Get-Credential administrator@o365experts.local) -ErrorAction Stop | Out-Null
 }
 catch
 {
