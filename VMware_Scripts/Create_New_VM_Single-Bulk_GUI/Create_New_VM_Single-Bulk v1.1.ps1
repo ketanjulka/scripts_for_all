@@ -152,11 +152,11 @@ $label4.Font = 'Microsoft Sans Serif,11'
 $form.Controls.Add($label4)
 
 $label4a = New-Object System.Windows.Forms.Label
-$label4a.Location = New-Object System.Drawing.Point(320,140)
-$label4a.Size = New-Object System.Drawing.Size(250,30)
+$label4a.Location = New-Object System.Drawing.Point(320,135)
+$label4a.Size = New-Object System.Drawing.Size(300,30)
 $label4a.AutoSize = $false
 $label4a.Text = "Use semicolon for multiple Disks e.g. 150;1024"
-$label4a.Font = 'Microsoft Sans Serif,9'
+$label4a.Font = 'Microsoft Sans Serif,11'
 $form.Controls.Add($label4a)
 
 $textBox4 = New-Object System.Windows.Forms.TextBox
@@ -208,6 +208,8 @@ $form.Controls.Add($label5)
 $textBox5 = New-Object System.Windows.Forms.ComboBox
 $textBox5.Location = New-Object System.Drawing.Point(150,200)
 $textBox5.Size = New-Object System.Drawing.Size(300,22)
+$textBox5.AutoCompleteMode = 'Suggest'
+$textBox5.AutoCompleteSource = 'ListItems'
 $textBox5.AutoSize = $false
 $textBox5.Sorted = $true
 $form.Controls.Add($textBox5)
@@ -225,11 +227,11 @@ $label6.Font = 'Microsoft Sans Serif,11'
 $form.Controls.Add($label6)
 
 $label6a = New-Object System.Windows.Forms.Label
-$label6a.Location = New-Object System.Drawing.Point(320,230)
-$label6a.Size = New-Object System.Drawing.Size(250,30)
+$label6a.Location = New-Object System.Drawing.Point(320,225)
+$label6a.Size = New-Object System.Drawing.Size(300,35)
 $label6a.AutoSize = $false
 $label6a.Text = "Use semicolon for adding multiple Networks e.g. Prod-Net;DEV-Net"
-$label6a.Font = 'Microsoft Sans Serif,9'
+$label6a.Font = 'Microsoft Sans Serif,11'
 $form.Controls.Add($label6a)
 
 $textBox6 = New-Object System.Windows.Forms.TextBox
@@ -241,7 +243,7 @@ $form.Controls.Add($textBox6)
 
 # Template Name
 $label7 = New-Object System.Windows.Forms.Label
-$label7.Location = New-Object System.Drawing.Point(10,270)
+$label7.Location = New-Object System.Drawing.Point(10,280)
 $label7.Size = New-Object System.Drawing.Size(125,40)
 $label7.AutoSize = $false
 $label7.Text = "Template Name: (Optional)"
@@ -249,15 +251,15 @@ $label7.Font = 'Microsoft Sans Serif,11'
 $form.Controls.Add($label7)
 
 $label7a = New-Object System.Windows.Forms.Label
-$label7a.Location = New-Object System.Drawing.Point(320,270)
-$label7a.Size = New-Object System.Drawing.Size(250,30)
+$label7a.Location = New-Object System.Drawing.Point(320,280)
+$label7a.Size = New-Object System.Drawing.Size(300,35)
 $label7a.AutoSize = $false
 $label7a.Text = "Only add VM Name and Resource Pool when using Templates."
-$label7a.Font = 'Microsoft Sans Serif,9'
+$label7a.Font = 'Microsoft Sans Serif,11'
 $form.Controls.Add($label7a)
 
 $textBox7 = New-Object System.Windows.Forms.TextBox
-$textBox7.Location = New-Object System.Drawing.Point(150,270)
+$textBox7.Location = New-Object System.Drawing.Point(150,280)
 $textBox7.Size = New-Object System.Drawing.Size(160,22)
 $textBox7.AutoSize = $false
 $textBox7.Add_Click({
