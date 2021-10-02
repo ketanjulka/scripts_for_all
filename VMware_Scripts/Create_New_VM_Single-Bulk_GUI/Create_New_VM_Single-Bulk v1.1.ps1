@@ -2,12 +2,11 @@
 #  Author: Ketan Julka
 #  Date: 27/09/2021
 #  Description: This script can be used to create single or multiple VM’s using manual inputs or a CSV file.
-#               A Template can also be used. User input will be taken in a GUI (.NET based).
+#               User input will be taken in a GUI (.NET based). A Template can also be used.
 #
 #  Refer to below link for details about Parameter's
 #  https://developer.vmware.com/docs/powercli/latest/vmware.vimautomation.core/commands/new-vm/#DefaultParameterSet           
-#       
-#    
+#
 ###############################################################################################################
 
 #Import the required sub-module. Import-Module VMware.PowerCLI can also be used.
@@ -32,18 +31,27 @@ catch
 }
 
 # Retrieve the list of Guest OS Details and saves it in a Variable.
-[string[]]$viObjVmHostsel = Get-VMHost
-$viObjVmHost = Get-VMHost -Name $viObjVmHostsel[0]
-$viewObjEnvBrowser = Get-View -Id (Get-View -Id $viObjVmHost.ExtensionData.Parent).EnvironmentBrowser
+try
+{
+[string[]]$viObjVmHostsel = Get-VMHost -ErrorAction Stop
+$viObjVmHost = Get-VMHost -Name $viObjVmHostsel[0] -ErrorAction Stop
+$viewObjEnvBrowser = Get-View -Id (Get-View -Id $viObjVmHost.ExtensionData.Parent).EnvironmentBrowser -ErrorAction Stop
 $vmxVer = ($viewObjEnvBrowser.QueryConfigOptionDescriptor() | Where-Object {$_.DefaultConfigOption}).Key
 $osDesc = $viewObjEnvBrowser.QueryConfigOption($vmxVer,$viObjVmHost.ExtensionData.MoRef).GuestOSDescriptor
+}
+catch
+{
+    Write-Host "Unable to retrieve the Guest OS details. Check if the vCenter details are correct and try again." -ForegroundColor Red -BackgroundColor White
+    break
+}
+
 
 #GUI Code Starts
 
 $form = New-Object System.Windows.Forms.Form
 $form.Text = 'Enter VM Details. All fileds with * are mandatory.'
-$form.MinimumSize = New-Object System.Drawing.Size(650,550)
-$form.MaximumSize = New-Object System.Drawing.Size(650,550)
+$form.MinimumSize = New-Object System.Drawing.Size(670,550)
+$form.MaximumSize = New-Object System.Drawing.Size(670,550)
 $form.StartPosition = 'CenterScreen'
 
 
@@ -92,6 +100,7 @@ $form.Controls.Add($label)
 $textBox = New-Object System.Windows.Forms.TextBox
 $textBox.Location = New-Object System.Drawing.Point(150,20)
 $textBox.Size = New-Object System.Drawing.Size(160,22)
+$textBox.Font = 'Microsoft Sans Serif,11'
 $textBox.AutoSize = $false
 $form.Controls.Add($textBox)
 
@@ -107,6 +116,7 @@ $form.Controls.Add($label1)
 $textBox1 = New-Object System.Windows.Forms.TextBox
 $textBox1.Location = New-Object System.Drawing.Point(150,50)
 $textBox1.Size = New-Object System.Drawing.Size(160,22)
+$textBox1.Font = 'Microsoft Sans Serif,11'
 $textBox1.AutoSize = $false
 $form.Controls.Add($textBox1)
 
@@ -123,6 +133,7 @@ $form.Controls.Add($label2)
 $textBox2 = New-Object System.Windows.Forms.TextBox
 $textBox2.Location = New-Object System.Drawing.Point(150,80)
 $textBox2.Size = New-Object System.Drawing.Size(160,22)
+$textBox2.Font = 'Microsoft Sans Serif,11'
 $textBox2.AutoSize = $false
 $form.Controls.Add($textBox2)
 
@@ -139,6 +150,7 @@ $form.Controls.Add($label3)
 $textBox3 = New-Object System.Windows.Forms.TextBox
 $textBox3.Location = New-Object System.Drawing.Point(150,110)
 $textBox3.Size = New-Object System.Drawing.Size(160,22)
+$textBox3.Font = 'Microsoft Sans Serif,11'
 $textBox3.AutoSize = $false
 $form.Controls.Add($textBox3)
 
@@ -153,22 +165,23 @@ $form.Controls.Add($label4)
 
 $label4a = New-Object System.Windows.Forms.Label
 $label4a.Location = New-Object System.Drawing.Point(320,135)
-$label4a.Size = New-Object System.Drawing.Size(300,30)
+$label4a.Size = New-Object System.Drawing.Size(300,35)
 $label4a.AutoSize = $false
 $label4a.Text = "Use semicolon for multiple Disks e.g. 150;1024"
-$label4a.Font = 'Microsoft Sans Serif,11'
+$label4a.Font = new-object System.Drawing.Font('Ariel',11,[System.Drawing.FontStyle]::Bold)
 $form.Controls.Add($label4a)
 
 $textBox4 = New-Object System.Windows.Forms.TextBox
 $textBox4.Location = New-Object System.Drawing.Point(150,140)
 $textBox4.Size = New-Object System.Drawing.Size(160,22)
+$textBox4.Font = 'Microsoft Sans Serif,11'
 $textBox4.AutoSize = $false
 $form.Controls.Add($textBox4)
 
 # DropDownBox Guest OS
 
 $DropDownBoxlabel = New-Object System.Windows.Forms.Label
-$DropDownBoxlabel.Location = New-Object System.Drawing.Point(10,170)
+$DropDownBoxlabel.Location = New-Object System.Drawing.Point(10,180)
 $DropDownBoxlabel.Size = New-Object System.Drawing.Size(115,22)
 $DropDownBoxlabel.AutoSize = $false
 $DropDownBoxlabel.Text = "Guest OS *:"
@@ -176,8 +189,9 @@ $DropDownBoxlabel.Font = 'Microsoft Sans Serif,11'
 $form.Controls.Add($DropDownBoxlabel)
 
 $DropDownBox = New-Object System.Windows.Forms.ComboBox
-$DropDownBox.Location = New-Object System.Drawing.Point(150,170)
-$DropDownBox.Size = New-Object System.Drawing.Size(300,22)
+$DropDownBox.Location = New-Object System.Drawing.Point(150,180)
+$DropDownBox.Size = New-Object System.Drawing.Size(350,22)
+$DropDownBox.Font = 'Microsoft Sans Serif,11'
 $DropDownBox.AutoSize = $false
 $DropDownBox.AutoCompleteMode = 'Suggest'
 $DropDownBox.AutoCompleteSource = 'ListItems'
@@ -198,7 +212,7 @@ $osver.Keys | ForEach-Object {$DropDownBox.Items.Add($_)} | Out-Null
 $DataStore_list = Get-Datastore
 
 $label5 = New-Object System.Windows.Forms.Label
-$label5.Location = New-Object System.Drawing.Point(10,200)
+$label5.Location = New-Object System.Drawing.Point(10,210)
 $label5.Size = New-Object System.Drawing.Size(115,22)
 $label5.AutoSize = $false
 $label5.Text = "Datastore *:"
@@ -206,8 +220,9 @@ $label5.Font = 'Microsoft Sans Serif,11'
 $form.Controls.Add($label5)
 
 $textBox5 = New-Object System.Windows.Forms.ComboBox
-$textBox5.Location = New-Object System.Drawing.Point(150,200)
-$textBox5.Size = New-Object System.Drawing.Size(300,22)
+$textBox5.Location = New-Object System.Drawing.Point(150,210)
+$textBox5.Size = New-Object System.Drawing.Size(320,22)
+$textBox5.Font = 'Microsoft Sans Serif,11'
 $textBox5.AutoCompleteMode = 'Suggest'
 $textBox5.AutoCompleteSource = 'ListItems'
 $textBox5.AutoSize = $false
@@ -219,7 +234,7 @@ $DataStore_list | ForEach-Object {$textBox5.Items.Add($_)} | Out-Null
 
 # Network Name
 $label6 = New-Object System.Windows.Forms.Label
-$label6.Location = New-Object System.Drawing.Point(10,230)
+$label6.Location = New-Object System.Drawing.Point(10,240)
 $label6.Size = New-Object System.Drawing.Size(125,22)
 $label6.AutoSize = $false
 $label6.Text = "Network Name *:"
@@ -227,23 +242,24 @@ $label6.Font = 'Microsoft Sans Serif,11'
 $form.Controls.Add($label6)
 
 $label6a = New-Object System.Windows.Forms.Label
-$label6a.Location = New-Object System.Drawing.Point(320,225)
-$label6a.Size = New-Object System.Drawing.Size(300,35)
+$label6a.Location = New-Object System.Drawing.Point(320,235)
+$label6a.Size = New-Object System.Drawing.Size(310,35)
 $label6a.AutoSize = $false
 $label6a.Text = "Use semicolon for adding multiple Networks e.g. Prod-Net;DEV-Net"
-$label6a.Font = 'Microsoft Sans Serif,11'
+$label6a.Font = new-object System.Drawing.Font('Ariel',11,[System.Drawing.FontStyle]::Bold)
 $form.Controls.Add($label6a)
 
 $textBox6 = New-Object System.Windows.Forms.TextBox
-$textBox6.Location = New-Object System.Drawing.Point(150,230)
+$textBox6.Location = New-Object System.Drawing.Point(150,240)
 $textBox6.Size = New-Object System.Drawing.Size(160,22)
+$textBox6.Font = 'Microsoft Sans Serif,11'
 $textBox6.AutoSize = $false
 $form.Controls.Add($textBox6)
 
 
 # Template Name
 $label7 = New-Object System.Windows.Forms.Label
-$label7.Location = New-Object System.Drawing.Point(10,280)
+$label7.Location = New-Object System.Drawing.Point(10,290)
 $label7.Size = New-Object System.Drawing.Size(125,40)
 $label7.AutoSize = $false
 $label7.Text = "Template Name: (Optional)"
@@ -251,16 +267,17 @@ $label7.Font = 'Microsoft Sans Serif,11'
 $form.Controls.Add($label7)
 
 $label7a = New-Object System.Windows.Forms.Label
-$label7a.Location = New-Object System.Drawing.Point(320,280)
-$label7a.Size = New-Object System.Drawing.Size(300,35)
+$label7a.Location = New-Object System.Drawing.Point(320,290)
+$label7a.Size = New-Object System.Drawing.Size(310,35)
 $label7a.AutoSize = $false
 $label7a.Text = "Only add VM Name and Resource Pool when using Templates."
-$label7a.Font = 'Microsoft Sans Serif,11'
+$label7a.Font = new-object System.Drawing.Font('Ariel',11,[System.Drawing.FontStyle]::Bold)
 $form.Controls.Add($label7a)
 
 $textBox7 = New-Object System.Windows.Forms.TextBox
-$textBox7.Location = New-Object System.Drawing.Point(150,280)
+$textBox7.Location = New-Object System.Drawing.Point(150,290)
 $textBox7.Size = New-Object System.Drawing.Size(160,22)
+$textBox7.Font = 'Microsoft Sans Serif,11'
 $textBox7.AutoSize = $false
 $textBox7.Add_Click({
 
@@ -276,7 +293,7 @@ $form.Controls.Add($textBox7)
 #Radio Buttons
 
 $radiobutton1 = New-Object System.Windows.Forms.RadioButton
-$radiobutton1.Location = New-Object System.Drawing.Point(40,320)
+$radiobutton1.Location = New-Object System.Drawing.Point(40,330)
 $radiobutton1.Size = New-Object System.Drawing.Size(150,40)
 $radiobutton1.Font = 'Microsoft Sans Serif,11'
 $radiobutton1.Text = "Create single VM"
@@ -296,7 +313,7 @@ $radiobutton1.Add_Click({
 $form.Controls.Add($radiobutton1)
 
 $radiobutton2 = New-Object System.Windows.Forms.RadioButton
-$radiobutton2.Location = New-Object System.Drawing.Point(200,320)
+$radiobutton2.Location = New-Object System.Drawing.Point(200,330)
 $radiobutton2.Size = New-Object System.Drawing.Size(150,40)
 $radiobutton2.Font = 'Microsoft Sans Serif,11'
 $radiobutton2.Text = "Create bulk VM's"
@@ -320,7 +337,6 @@ $form.Add_Shown({$textBox.Select()})
 $form.ShowDialog()
 
 #GUI Code Ends
-
 
 # If the condition matches the Loop is used for creating VM's from a Input csv file. Error handling is also built in to the code.
 try
