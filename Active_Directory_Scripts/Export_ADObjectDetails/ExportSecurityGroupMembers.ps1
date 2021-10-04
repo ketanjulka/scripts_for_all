@@ -6,9 +6,8 @@ $inputgroup = Import-Csv -Path \\AUHFSV01\OpenShares\Ketan\groups.csv -Encoding 
 
 foreach($group in $inputgroup)
 {
-    $DLSA = $group.SamAccountName
-    $dltuse = $group.Name
-    ECHO "SamAccountName of DL in picture '$DLSA'"
-    Get-ADGroupMember -Identity $DLSA | Export-Csv ("\\AUHFSV01\OpenShares\Ketan\Output\"+$DLSA+".csv") -NotypeInformation -Encoding UTF8
-        
+    $grp_sam = $group.SamAccountName
+    $grp_name = $group.Name
+    Write-Output "SamAccountName of group in picture '$grp_name'"
+    Get-ADGroupMember -Identity $grp_sam | Export-Csv ("\\AUHFSV01\OpenShares\Ketan\Output\"+$grp_sam+".csv") -NotypeInformation -Encoding UTF8  
 }
