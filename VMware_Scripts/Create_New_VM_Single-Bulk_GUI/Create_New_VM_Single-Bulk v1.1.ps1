@@ -1,13 +1,51 @@
-﻿###############################################################################################################
-#  Author: Ketan Julka
-#  Date: 27/09/2021
-#  Description: This script can be used to create single or multiple VM’s using manual inputs or a CSV file.
-#               User input will be taken in a GUI (.NET based). A Template can also be used.
-#
-#  Refer to below link for details about Parameter's
-#  https://developer.vmware.com/docs/powercli/latest/vmware.vimautomation.core/commands/new-vm/#DefaultParameterSet           
-#
-###############################################################################################################
+
+<#PSScriptInfo
+
+.VERSION 1.1.0
+
+.GUID 1f05f4f8-ee4a-48e4-86e8-b1fcd09c213a
+
+.AUTHOR Ketan Julka
+
+.COMPANYNAME
+
+.COPYRIGHT
+
+.TAGS
+
+.LICENSEURI
+
+.PROJECTURI
+
+.ICONURI
+
+.EXTERNALMODULEDEPENDENCIES
+
+.REQUIREDSCRIPTS
+
+.EXTERNALSCRIPTDEPENDENCIES
+
+.RELEASENOTES
+
+
+#>
+
+<# 
+
+.DESCRIPTION
+The script helps create single or multiple VM's in VMware vCenter. For a single VM manually populate the fields in a GUI (.NET based) and for multiple VM's the input is a csv file. Additionally, when using Template option only populate the Name and Resource Pool.
+
+Click below link to download the Sample input file.
+https://tinyurl.com/2ssz7yer
+
+Click below link to download the Guest OS list.
+https://tinyurl.com/kxmf8
+
+Refer the below link for details about Parameter's
+ https://developer.vmware.com/docs/powercli/latest/vmware.vimautomation.core/commands/new-vm/#DefaultParameterSet
+#> 
+
+Param()
 
 #Import the required sub-module. Import-Module VMware.PowerCLI can also be used.
 Import-Module VMware.VimAutomation.Core
@@ -20,9 +58,12 @@ Add-Type -AssemblyName System.Drawing
 $FileBrowser = New-Object System.Windows.Forms.OpenFileDialog -Property @{ InitialDirectory = [Environment]::GetFolderPath('Desktop'); Filter = "CSV files (*.csv)|*.csv" }
 
 # Making secure connection to the vCenter for creation of the VM's.
+
+$VIServer = Read-Host "Enter the vCenter Host Name or IP"
+
 try
 {
-    Connect-VIServer -Server (Read-Host "Enter the vCenter Host Name or IP").Trim() -Credential (Get-Credential administrator@o365experts.local) -ErrorAction Stop | Out-Null
+    Connect-VIServer -Server $VIServer -Credential (Get-Credential administrator@o365experts.local) -ErrorAction Stop | Out-Null
 }
 catch
 {
