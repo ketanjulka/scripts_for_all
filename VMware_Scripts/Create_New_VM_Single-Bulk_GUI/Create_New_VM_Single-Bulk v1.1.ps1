@@ -1,7 +1,7 @@
 
 <#PSScriptInfo
 
-.VERSION 1.1.0
+.VERSION 1.1.1
 
 .GUID 1f05f4f8-ee4a-48e4-86e8-b1fcd09c213a
 
@@ -27,11 +27,9 @@
 
 .RELEASENOTES
 
-
 #>
 
-<# 
-
+<#
 .DESCRIPTION
 The script helps create single or multiple VM's in VMware vCenter. For a single VM manually populate the fields in a GUI (.NET based) and for multiple VM's the input is a csv file. Additionally, when using Template option only populate the Name and Resource Pool.
 
