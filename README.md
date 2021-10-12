@@ -11,6 +11,7 @@ git clone https://github.com/ketanjulka/scripts_for_all.git
 ```
 Additionally you can download these scripts from this [OneDrive link].
 
+[OneDrive link]: https://exchangexperts-my.sharepoint.com/:f:/g/personal/ketan_j_exchangexperts_onmicrosoft_com/EnNcrviP-9RKlLEmVRPZRN4BlOXuwxhZCiN1F0T2m1H6uw?e=z7NR3h
 
 # Code Disclaimer:
 
