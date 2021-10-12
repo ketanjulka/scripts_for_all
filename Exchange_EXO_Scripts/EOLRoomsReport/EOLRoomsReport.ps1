@@ -72,7 +72,7 @@ $collection = @()
 
 Start-transcript -path $log
 ##################Userid & password#################
-$userId = "tejas_rajpurohit@alfuttaimgroup.onmicrosoft.com"
+$userId = "user@domain.onmicrosoft.com"
 $encrypted1 = Get-Content .\password1.txt
 $pwd = ConvertTo-SecureString -string $encrypted1
 $Credential = New-Object System.Management.Automation.PSCredential -ArgumentList $userId, $pwd

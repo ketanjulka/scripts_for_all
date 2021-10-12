@@ -4,7 +4,7 @@ Import-Module ActiveDirectory
 $results = @()
 
 # Import group names.
-$inputgroup = Import-Csv -Path '\\auhfsv01\OpenShares\Ketan\newA1 - test.csv' -Encoding UTF8
+$inputgroup = Import-Csv -Path '\\server1\Ketan\newA1 - test.csv' -Encoding UTF8
 
 foreach($group in $inputgroup)
 {
