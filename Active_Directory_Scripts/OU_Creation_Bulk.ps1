@@ -4,7 +4,7 @@
 # Import Active Directory Module  
 Import-Module ActiveDirectory -ErrorAction SilentlyContinue  
 # Provide Source Domain details
-$OldDomain = 'DC=mofa,DC=gov,DC=ae'
+$OldDomain = 'DC=testdomain,DC=local'
 # Provide Destination Domain details
 $NewDomain = 'DC=grey,DC=local'
 # Provide CSV file name and Path
