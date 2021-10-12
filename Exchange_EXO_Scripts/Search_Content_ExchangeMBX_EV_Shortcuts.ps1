@@ -5,10 +5,10 @@ New-MailboxSearch -SourceMailboxes ketan.j -Name ketan.j -SearchQuery 'body:"Thi
 Start-MailboxSearch -Identity ketan.j
 
 
-New-MailboxSearch -SourceMailboxes ketan.j -Name ketan.j -SearchQuery 'attachment:"evserver01.mofa.gov.ae/EnterpriseVault"' -EstimateOnly
+New-MailboxSearch -SourceMailboxes ketan.j -Name ketan.j -SearchQuery 'attachment:"evserver.abc.local/EnterpriseVault"' -EstimateOnly
 
 
-Search-Mailbox -Identity ketan.j -SearchQuery 'body:"evserver01.mofa.gov.ae"' -EstimateResultOnly
+Search-Mailbox -Identity ketan.j -SearchQuery 'body:"evserver.abc.local"' -EstimateResultOnly
 
 
 Search-Mailbox -Identity ketan.j -SearchQuery 'kind:email' -EstimateResultOnly
