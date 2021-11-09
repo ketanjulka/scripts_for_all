@@ -1,6 +1,6 @@
 # Get all mailboxes
-$domain = 'rrpnet.ae'
-$mailboxes = (Get-Mailbox -ResultSize Unlimited | where { $_.EmailAddresses -like ('*@' + $domain) })
+$domain = 'rrpnet.co.in'
+$mailboxes = (Get-Mailbox -ResultSize Unlimited | Where-Object { $_.EmailAddresses -like ('*@' + $domain) })
 
 # Loop through each mailbox
 foreach ($mailbox in $mailboxes) {
@@ -11,7 +11,7 @@ foreach ($mailbox in $mailboxes) {
     for ($i=0; $i -lt $emailaddresses.count; $i++) {
         
         # Change the domain name below to what you want to remove
-        if ($emailaddresses[$i].smtpaddress -like "*rrpnet.ae*") {
+        if ($emailaddresses[$i].smtpaddress -like "*rrpnet.co.in*") {
  
             # Remove the unwanted email address
             $badaddress = $emailaddresses[$i];
