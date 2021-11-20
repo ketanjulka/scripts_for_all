@@ -1,5 +1,5 @@
 Add-PSSnapin Microsoft.Exchange.Management.PowerShell.SnapIn;
-$res = Dir \\172.17.16.223\Destination\*.pst
+$res = Dir \\192.168.1.55\Destination\*.pst
 foreach ($result in $res)
 {
     $MailboxName, $c = $result.Basename.split('[')
