@@ -1,6 +1,6 @@
 provider "vsphere" {
   user           = "administrator@vsphere.local"
-  password       = "Office@365"
+  password       = "P@ssw0rd"
   vsphere_server = "vcsa.o365experts.local"
 
   # If you have a self-signed cert
@@ -21,13 +21,13 @@ resource "vsphere_compute_cluster" "Cluster-Prod" {
 resource "vsphere_host" "Host1" {
   hostname = "10.50.15.21"
   username = "root"
-  password = "Office@365"
+  password = "P@ssw0rd"
   cluster  = vsphere_compute_cluster.Cluster-Prod.id
 }
 
 resource "vsphere_host" "Host2" {
   hostname = "10.50.15.22"
   username = "root"
-  password = "Office@365"
+  password = "P@ssw0rd"
   cluster  = vsphere_compute_cluster.Cluster-Prod.id
 }
