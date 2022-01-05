@@ -22,12 +22,12 @@ resource "vsphere_host" "Host1" {
   hostname = "10.50.15.21"
   username = "root"
   password = "Office@365"
-  cluster = vsphere_compute_cluster.Cluster-Prod.id
+  cluster  = vsphere_compute_cluster.Cluster-Prod.id
 }
 
 resource "vsphere_host" "Host2" {
   hostname = "10.50.15.22"
   username = "root"
   password = "Office@365"
-  cluster = vsphere_compute_cluster.Cluster-Prod.id
+  cluster  = vsphere_compute_cluster.Cluster-Prod.id
 }
