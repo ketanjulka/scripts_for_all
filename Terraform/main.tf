@@ -27,3 +27,26 @@ resource "vsphere_host" "Host2" {
   thumbprint = "91:89:26:B8:0D:E9:80:C7:0B:68:BF:9D:11:C0:5C:0C:CB:46:1C:A7"
   cluster    = vsphere_compute_cluster.Cluster-Prod.id
 }
+
+    resource "time_sleep" "wait_for_ingress_alb" {
+  create_duration = "30s"
+}
+
+resource "vsphere_distributed_virtual_switch" "vds" {
+  name            = "Prod-VDS"
+  datacenter_id   = vsphere_datacenter.Lab_DC.moid
+  uplinks         = ["uplink1", "uplink2"]
+  active_uplinks  = ["uplink1"]
+  standby_uplinks = ["uplink2"]
+
+  host {
+    host_system_id = vsphere_host.Host1.id
+    devices        = ["vmnic0"]
+  }
+
+  host {
+    host_system_id = vsphere_host.Host2.id
+    devices        = ["vmnic0"]
+  }
+
+}
