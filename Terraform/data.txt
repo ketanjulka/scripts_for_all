@@ -1,0 +1,14 @@
+resource "time_sleep" "wait_for_ingress_alb" {
+  create_duration = "60s"
+}
+
+
+  host {
+    host_system_id = "${vsphere_host.Host1.id}"
+    devices        = ["vmnic0"]
+  }
+
+  host {
+    host_system_id = "${vsphere_host.Host2.id}"
+    devices        = ["vmnic0"]
+  }
