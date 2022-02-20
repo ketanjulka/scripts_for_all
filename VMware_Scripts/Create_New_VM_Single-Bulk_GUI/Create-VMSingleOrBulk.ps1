@@ -1,7 +1,7 @@
 
 <#PSScriptInfo
 
-.VERSION 1.1.1
+.VERSION 1.1.2
 
 .GUID 1f05f4f8-ee4a-48e4-86e8-b1fcd09c213a
 
@@ -11,7 +11,7 @@
 
 .COPYRIGHT
 
-.TAGS
+.TAGS VMware, New-VM, CreateBulkVM's, vCenter, PowerCLI
 
 .LICENSEURI
 
@@ -19,13 +19,13 @@
 
 .ICONURI
 
-.EXTERNALMODULEDEPENDENCIES
+.EXTERNALMODULEDEPENDENCIES VMware.PowerCLI
 
 .REQUIREDSCRIPTS
 
 .EXTERNALSCRIPTDEPENDENCIES
 
-.RELEASENOTES
+.RELEASENOTES Updated Script File Info.
 
 #>
 
@@ -34,14 +34,14 @@
 The script helps create single or multiple VM's in VMware vCenter. For a single VM manually populate the fields in a GUI (.NET based) and for multiple VM's the input is a csv file. Additionally, when using Template option only populate the Name and Resource Pool.
 
 Click below link to download the Sample input file.
-https://tinyurl.com/2ssz7yer
+https://tinyurl.com/y683bddh
 
 Click below link to download the Guest OS list.
-https://tinyurl.com/kxmf8
+https://tinyurl.com/4er88evc
 
 Refer the below link for details about Parameter's
  https://developer.vmware.com/docs/powercli/latest/vmware.vimautomation.core/commands/new-vm/#DefaultParameterSet
-#> 
+#>
 
 Param()
 
@@ -57,7 +57,7 @@ $FileBrowser = New-Object System.Windows.Forms.OpenFileDialog -Property @{ Initi
 
 # Making secure connection to the vCenter for creation of the VM's.
 
-$VIServer = Read-Host "Enter the vCenter Host Name or IP"
+$VIServer = Read-Host "Enter the vCenter FQDN or IP"
 
 try
 {
