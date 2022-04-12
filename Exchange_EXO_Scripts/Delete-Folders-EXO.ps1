@@ -43,7 +43,7 @@
 
 [string]$info = "White"                              # Color for informational messages
 [string]$warning = "Yellow"                          # Color for warning messages
-[string]$error = "Red"                               # Color for error messages
+[string]$error_clr = "Red"                               # Color for error messages
 [string]$LogFile = "C:\Temp\Log.txt"                 # Path of the Log File
 [string]$FoldersCSV = "C:\Temp\Folders.txt"          # Path of the Folders File
 [string]$UsersCSV = "C:\Temp\Users.txt"              # Path of the Users File
@@ -108,7 +108,7 @@ Import-Csv $FoldersCSV -Encoding UTF8 | Foreach-Object {
 
         # Catch the errors
         trap [System.Exception] { 
-            Write-Host ("Error: " + $_.Exception.Message) -foregroundcolor $error
+            Write-Host ("Error: " + $_.Exception.Message) -foregroundcolor $error_clr
             Add-Content $LogFile ("Error: " + $_.Exception.Message) 
             continue
         } 
