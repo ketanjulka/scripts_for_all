@@ -111,5 +111,4 @@ foreach ($usr in $csv)
     }
 
 }
-
 # IMPORTANT: Any text with red background is an indication that there is an issue with the user. Fix the same before migration.
