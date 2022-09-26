@@ -1,6 +1,9 @@
 # Scripts_for_all:
 Welcome to the my scripts Repository! It includes Scripts for Exchange/Exchange Online, Microsoft 365, Active Directory, Windows Clients/Servers and VMware which I have created/collected over time.
 
+[GitHub Link]
+
+[GitHub Link]: https://github.com/ketanjulka/scripts_for_all.git
 
 # Downloading the Scripts:
 
